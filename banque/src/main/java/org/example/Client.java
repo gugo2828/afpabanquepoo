@@ -10,8 +10,7 @@ public class Client {
     private String prenom;
     private Date date_naissance;
     private String email;
-
-   // private ArrayList<Agence> id_agence = new ArrayList<>();
+    private Agence id_agence ;
 
 
 }
