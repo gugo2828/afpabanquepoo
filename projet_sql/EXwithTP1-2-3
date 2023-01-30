@@ -1,12 +1,16 @@
 
 //create tables
 
- create table inscrit(id_inscrit serial primary key,mail varchar(50),pseudo      varchar(50),nom varchar(50),mot_de_passe varchar(8));
- create table film(id_film serial primary key,titre varchar(50),duree int,dateSortie date);
- create table genre(id_genre serial primary key,intitule varchar(50));
- create table critique(id_commentaire serial primary key,titre varchar(50),commentaire varchar(50),date_validiter date,id_inscrit int references inscrit(id_inscrit),id_film int references film(id_film)); 
+create table inscrit(id_inscrit serial primary key,mail varchar(50),pseudo      varchar(50),nom varchar(50),mot_de_passe varchar(8));
+
+create table film(id_film serial primary key,titre varchar(50),duree int,dateSortie date);
+
+create table genre(id_genre serial primary key,intitule varchar(50));
+
+create table critique(id_commentaire serial primary key,titre varchar(50),commentaire varchar(50),date_validiter date,id_inscrit int references inscrit(id_inscrit),id_film int references film(id_film)); 
+
  //forget and then corrected -- alter table critique add column id_film int references film(id_film);
- create table appartient(id_genre int references genre(id_genre),id_film int references film(id_film)); 
+create table appartient(id_genre int references genre(id_genre),id_film int references film(id_film)); 
 
 
 
@@ -21,7 +25,7 @@ suivants :
 *****************************************************************************************************
 
 Requête 1 : Afficher tous les films avec toutes leurs informations
-select film.*,intitule from film  inner join appartient on film.id_film=appartient.id_film inner join genre on genre.id_genre=appartient.id_genre ;
+SELECT film.*,intitule from film  inner join appartient on film.id_film=appartient.id_film inner join genre on genre.id_genre=appartient.id_genre ;
 
 Requête 2 : Afficher les titres, les durées, et les dates de sortie de tous les films
 SELECT * FROM film;
@@ -43,7 +47,7 @@ SELECT * FROM film WHERE titre LIKE '%The%';
 
 
 Requête 7 : Afficher les 2 premiers films dans la base
- SELECT * FROM film WHERE id_film IN (1,2) ;
+SELECT * FROM film WHERE id_film IN (1,2) ;
 
 
 
@@ -103,7 +107,7 @@ Requête 2 : Afficher le nombre de films par genre (id_genre et nombre)
 SELECT id_genre, count(*) FROM appartient GROUP BY id_genre;
 
 Requête 3 : Afficher le nombre de critiques par inscrit (id_inscrit, nombre de critiques)
-//SELECT inscrit.id_inscrit,count(*) FROM inscrit INNER JOIN critique ON critique.id_inscrit=inscrit.id_inscrit GROUP BY inscrit.id_inscrit;
+//////SELECT inscrit.id_inscrit,count(*) FROM inscrit INNER JOIN critique ON critique.id_inscrit=inscrit.id_inscrit GROUP BY inscrit.id_inscrit;///////
 
 SELECT critique.id_inscrit,count(*) FROM inscrit INNER JOIN critique ON critique.id_inscrit=inscrit.id_inscrit GROUP BY critique.id_inscrit;
 
@@ -129,16 +133,17 @@ SELECT film.*,critique.* FROM film left JOIN critique ON film.id_film=critique.i
 
 
 Requête 3 : Afficher les films (titre, durée et date de sortie) qui ont une durée supérieure à la moyenne de durées de tous les films
-
+SELECT titre  FROM film WHERE duree >(SELECT avg(duree)FROM film);
 
 
 Requête 4 : Afficher le nom de chaque inscrit avec le nombre de critiques qu'il a fait
+SELECT inscrit.nom,count(inscrit.id_inscrit) FROM inscrit INNER JOIN critique ON critique.id_inscrit=inscrit.id_inscrit GROUP BY inscrit.id_inscrit;
 
 
 
 Requête 5 : Afficher le nom de chaque inscrit avec le nombre de critiques qu'il a fait, les noms des inscrits
 qui n'ont jamais fait de critiques doivent être affichés également
-
+SELECT inscrit.nom,count(critique.id_commentaire) FROM inscrit LEFT JOIN critique ON critique.id_inscrit=inscrit.id_inscrit GROUP BY inscrit.id_inscrit;
 
 
 

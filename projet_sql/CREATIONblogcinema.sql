@@ -89,6 +89,7 @@ insert into critique values (default,'positif','Comment to film Dog with person'
 insert into critique values (default,'super positif','Comment to film The best',to_date('18/11/2023','dd/MM/yyyy'),5,20);
 insert into critique values (default,'moyenne positif','Comment to film Kazanova',to_date('15/12/2023','dd/MM/yyyy'),2,8);
 insert into critique values (default,'impeccable','Comment to film The finish',to_date('14/10/2023','dd/MM/yyyy'),4,7);
+insert into critique values (default,'impeccable+','Comment to film The finish+',to_date('15/10/2023','dd/MM/yyyy'),4,7);
 
 
 
