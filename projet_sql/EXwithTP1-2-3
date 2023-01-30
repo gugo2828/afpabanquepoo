@@ -21,18 +21,29 @@ suivants :
 *****************************************************************************************************
 
 Requête 1 : Afficher tous les films avec toutes leurs informations
+select film.*,intitule from film  inner join appartient on film.id_film=appartient.id_film inner join genre on genre.id_genre=appartient.id_genre ;
 
 Requête 2 : Afficher les titres, les durées, et les dates de sortie de tous les films
+SELECT * FROM film;
+
 
 Requête 3 : Afficher les films sortis avant début 2019
+SELECT * FROM film WHERE to_char(dateSortie,'YYYY') < '2019';
 
 Requête 4 : Afficher les films sortis entre début janvier 2018 et fin juin 2019
+SELECT * FROM film WHERE to_char(dateSortie,'YYYY-mm') < '2019-07' AND to_char(dateSortie,'YYYY-mm') > '2017-12';
+
 
 Requête 5 : Afficher les films qui ont un titre qui contient le mot "with"
+SELECT * FROM film WHERE titre LIKE '%with%';
+
 
 Requête 6 : Afficher les films qui ont un titre qui commence par "The"
+SELECT * FROM film WHERE titre LIKE '%The%';
+
 
 Requête 7 : Afficher les 2 premiers films dans la base
+ SELECT * FROM film WHERE id_film IN (1,2) ;
 
 
 
@@ -42,26 +53,39 @@ US2. Un film appartient à un ou plusieurs genres. Le genre est décrit par un i
 ********************************************************************************************************
 
 Requête 1 : Afficher la liste des genres (identifiants et intitulés)
+SELECT * FROM genre;
 
 Requête 2 : Afficher le nombre de genres représentés dans votre base de données
+SELECT COUNT(intitule) FROM genre;
 
 Requête 3 : Afficher la date de sortie du film le plus récent (que la date)
+SELECT MAX(dateSortie) FROM film;
 
 Requête 4 : Afficher la date de sortie du film le plus vieux (que la date)
+SELECT MIN(dateSortie) FROM film;
 
 Requête 5 : Afficher la somme de durées de films sortis en "2020-10-15"
+SELECT SUM(duree) FROM film WHERE to_char(dateSortie,'YYYY-mm-dd')='2020-10-15';
 
 Requête 6 : Afficher la moyenne de durées de tous les films dans votre base de données
+SELECT AVG(duree) FROM film;
 
 Requête 7 : Afficher les films (id_film) et leurs genres (id_genre)
+SELECT id_film,appartient.id_genre FROM genre INNER JOIN appartient ON appartient.id_genre=genre.id_genre;
+
 
 Requête 8 : Afficher les films (id_film, titre) et leurs genres (id_genre)
+SELECT film.id_film,titre,appartient.id_genre FROM film INNER JOIN appartient on film.id_film=appartient.id_film INNER JOIN genre ON appartient.id_genre=genre.id_genre;
+
+
 
 Requête 9 : Afficher les films (id_film, titre) et leurs genres (id_genre, intitulé)
+SELECT film.id_film,titre,appartient.id_genre,genre.intitule FROM film INNER JOIN appartient on film.id_film=appartient.id_film INNER JOIN genre ON appartient.id_genre=genre.id_genre;
+
+
 
 Requête 10 : Afficher la moyenne de durées des films qui ont du genre 1 (id_genre=1)
-
-
+SELECT avg(film.duree) FROM film INNER JOIN appartient on film.id_film=appartient.id_film INNER JOIN genre ON appartient.id_genre=genre.id_genre WHERE genre.id_genre = 1;
 
 
 TP3
@@ -74,13 +98,18 @@ laquelle la critique ne sera plus visible ou valeur nulle pour une validité non
 
 Requête 1 : Afficher les informations des inscrits ordonnés par leur pseudo (ASC)
 
+
 Requête 2 : Afficher le nombre de films par genre (id_genre et nombre)
+
 
 Requête 3 : Afficher le nombre de critiques par inscrit (id_inscrit, nombre de critiques)
 
+
 Requête 4 : Afficher le nombre de films par genre (intitulé et nombre)
 
+
 Requête 5 : Afficher les films de plus vieux au plus récents
+
 
 
 US4. Chaque critique est associée à un film.
@@ -89,13 +118,17 @@ US4. Chaque critique est associée à un film.
 
 Requête 1 : Afficher la liste des films (titre et date de sortie) et leurs critiques (titre et contenu)
 
+
 Requête 2 : Afficher la liste des films (titre et date de sortie) et leurs critiques (titre et contenu) en
 affichant également les films (titre et date de sortie) qui n'ont pas de critiques
+
 
 Requête 3 : Afficher les films (titre, durée et date de sortie) qui ont une durée supérieure à la moyenne de
 durées de tous les films
 
+
 Requête 4 : Afficher le nom de chaque inscrit avec le nombre de critiques qu'il a fait
+
 
 Requête 5 : Afficher le nom de chaque inscrit avec le nombre de critiques qu'il a fait, les noms des inscrits
 qui n'ont jamais fait de critiques doivent être affichés également
