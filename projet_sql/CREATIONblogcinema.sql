@@ -82,13 +82,13 @@ insert into appartient values (8,12);
 
 
 
-insert into critique values (default,'negatif','Comment to film Harry Potter et la Chambre des secrets',to_date('12/5/2020','dd/MM/yyyy'),'id_inscrit','id_film');
-insert into critique values (default,'super negatif','Comment to film Chamber in lake',to_date('12/3/2020','dd/MM/yyyy'),'id_inscrit','id_film');
-insert into critique values (default,'moyenne negatif','Comment to film My way',to_date('12/8/2021','dd/MM/yyyy'),'id_inscrit','id_film');
-insert into critique values (default,'positif','Comment to film Dog with person',to_date('12/6/2022','dd/MM/yyyy'),'id_inscrit','id_film');
-insert into critique values (default,'super positif','Comment to film The best',to_date('12/11/2023','dd/MM/yyyy'),'id_inscrit','id_film');
-insert into critique values (default,'moyenne positif','Comment to film Kazanova',to_date('12/12/2023','dd/MM/yyyy'),'id_inscrit','id_film');
-insert into critique values (default,'impeccable','Comment to film The finish',to_date('12/10/2023','dd/MM/yyyy'),'id_inscrit','id_film');
+insert into critique values (default,'negatif','Comment to film Harry Potter et la Chambre',to_date('19/5/2020','dd/MM/yyyy'),1,1);
+insert into critique values (default,'super negatif','Comment to film Chamber in lake',to_date('15/3/2020','dd/MM/yyyy'),2,3);
+insert into critique values (default,'moyenne negatif','Comment to film My way',to_date('19/8/2021','dd/MM/yyyy'),3,10);
+insert into critique values (default,'positif','Comment to film Dog with person',to_date('16/6/2022','dd/MM/yyyy'),4,15);
+insert into critique values (default,'super positif','Comment to film The best',to_date('18/11/2023','dd/MM/yyyy'),5,20);
+insert into critique values (default,'moyenne positif','Comment to film Kazanova',to_date('15/12/2023','dd/MM/yyyy'),2,8);
+insert into critique values (default,'impeccable','Comment to film The finish',to_date('14/10/2023','dd/MM/yyyy'),4,7);
 
 
 

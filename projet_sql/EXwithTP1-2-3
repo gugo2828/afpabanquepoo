@@ -97,19 +97,23 @@ laquelle la critique ne sera plus visible ou valeur nulle pour une validité non
 ************************************************************************************************
 
 Requête 1 : Afficher les informations des inscrits ordonnés par leur pseudo (ASC)
-
+SELECT * FROM inscrit ORDER BY pseudo ASC;
 
 Requête 2 : Afficher le nombre de films par genre (id_genre et nombre)
-
+SELECT id_genre, count(*) FROM appartient GROUP BY id_genre;
 
 Requête 3 : Afficher le nombre de critiques par inscrit (id_inscrit, nombre de critiques)
+//SELECT inscrit.id_inscrit,count(*) FROM inscrit INNER JOIN critique ON critique.id_inscrit=inscrit.id_inscrit GROUP BY inscrit.id_inscrit;
+
+SELECT critique.id_inscrit,count(*) FROM inscrit INNER JOIN critique ON critique.id_inscrit=inscrit.id_inscrit GROUP BY critique.id_inscrit;
 
 
 Requête 4 : Afficher le nombre de films par genre (intitulé et nombre)
+SELECT count(genre.intitule) FROM film INNER JOIN appartient ON appartient.id_film=film.id_film INNER JOIN genre ON genre.id_genre=appartient.id_genre GROUP BY genre.intitule ;
 
 
 Requête 5 : Afficher les films de plus vieux au plus récents
-
+SELECT * FROM film ORDER BY dateSortie DESC;
 
 
 US4. Chaque critique est associée à un film.
@@ -117,17 +121,19 @@ US4. Chaque critique est associée à un film.
 
 
 Requête 1 : Afficher la liste des films (titre et date de sortie) et leurs critiques (titre et contenu)
-
+SELECT film.titre,film.dateSortie,critique.titre,critique.commentaire FROM film INNER JOIN critique ON critique.id_film=film.id_film;
 
 Requête 2 : Afficher la liste des films (titre et date de sortie) et leurs critiques (titre et contenu) en
 affichant également les films (titre et date de sortie) qui n'ont pas de critiques
+SELECT film.*,critique.* FROM film left JOIN critique ON film.id_film=critique.id_film ; 
 
 
-Requête 3 : Afficher les films (titre, durée et date de sortie) qui ont une durée supérieure à la moyenne de
-durées de tous les films
+Requête 3 : Afficher les films (titre, durée et date de sortie) qui ont une durée supérieure à la moyenne de durées de tous les films
+
 
 
 Requête 4 : Afficher le nom de chaque inscrit avec le nombre de critiques qu'il a fait
+
 
 
 Requête 5 : Afficher le nom de chaque inscrit avec le nombre de critiques qu'il a fait, les noms des inscrits
