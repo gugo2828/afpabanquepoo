@@ -8,4 +8,7 @@ public class Compte {
      private int id_plan_epargne_logement;
      private int id_livretA;
      private int id_compte_courant;
+
+
+
 }
