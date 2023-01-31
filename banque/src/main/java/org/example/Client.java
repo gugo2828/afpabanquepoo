@@ -1,9 +1,10 @@
 package org.example;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Client {
+public class Client implements Serializable {
 
     int id;
     private String nom;

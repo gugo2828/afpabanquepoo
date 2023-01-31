@@ -1,5 +1,7 @@
 package org.example;
 
-public class LivretA extends Compte{
+import java.io.Serializable;
+
+public class LivretA extends Compte implements Serializable {
 
 }

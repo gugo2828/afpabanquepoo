@@ -1,6 +1,8 @@
 package org.example;
 
-public class Compte {
+import java.io.Serializable;
+
+public class Compte implements Serializable {
      private int id;
      private double solde;
      private int decouverte;

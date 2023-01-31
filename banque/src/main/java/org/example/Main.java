@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.Objects;
 import java.util.Scanner;
 
-import static org.example.BanqueTemplate.choice;
+import static org.example.BanqueTemplate.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -27,6 +27,9 @@ public class Main {
                             System.out.println("****************** Les clients ******************");
                             System.out.println();
                             System.out.println("****************** Les reservations ******************");
+                            System.out.println();
+                            agenceMaker(choice,choice,selector(),selector());
+
                             System.out.println();
                         }
                         break;
