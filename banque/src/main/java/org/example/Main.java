@@ -19,7 +19,7 @@ public class Main {
                 while (choice > 0 && choice < 10) {
 
                     if (choice == 1) {
-                        System.out.println("Dans A-1.Afficher l'etat de l'hotel");
+                        System.out.println("1.Créer une agence");
                         System.out.println("Taper 1 pour afficher ou 0 pour menu principale");
                         if (choice() == 1) {
                             System.out.println("****************** Les chambres *****************");
@@ -37,22 +37,34 @@ public class Main {
                 }
             } else if (choice == 2) {
                 while (choice > 0 && choice < 10) {
-                    if (choice == 2) {
-                        System.out.println("Dans B-2.Afficher le nombre de chambres reservees");
-                        System.out.println("Taper 1 pour afficher ou 0 pour menu principale");
-                        System.out.println(choice);
-                        break;
+                    System.out.println("2.Créer un client");
+                    System.out.println("Taper 1 pour afficher ou 0 pour menu principale");
+                    if (choice() == 1) {
+                        System.out.println("****************** Les chambres *****************");
+                        System.out.println();
+                        System.out.println("****************** Les clients ******************");
+                        System.out.println();
+                        System.out.println("****************** Les reservations ******************");
+                        System.out.println();
+
+                    break;
                     } else {
                         System.out.println("Verifier votre chiffre 1");
                     }
                     choice();
                 }
             } else if (choice == 3) {
-                while (choice > 0 && choice() < 10) {
-                    if (choice == 3) {
-                        System.out.println("Dans C-3.Afficher le nombre de chambres libres");
-                        System.out.println("Taper 1 pour afficher ou 0 pour menu principale");
-                        System.out.println(choice);
+                while (choice > 0 && choice < 10) {
+                    System.out.println("3.Créer un compte bancaire");
+                    System.out.println("Taper 1 pour afficher ou 0 pour menu principale");
+                    if (choice() == 1) {
+                        System.out.println("****************** Les chambres *****************");
+                        System.out.println();
+                        System.out.println("****************** Les clients ******************");
+                        System.out.println();
+                        System.out.println("****************** Les reservations ******************");
+                        System.out.println();
+
                         break;
                     } else {
                         System.out.println("Verifier votre chiffre 1");
@@ -62,10 +74,16 @@ public class Main {
                 }
             } else if (choice == 4) {
                 while (choice > 0 && choice < 10) {
-                    if (choice() == 4) {
-                        System.out.println("Dans D-4.Afficher le numero de la premiere chambre vide");
-                        System.out.println("Taper 1 pour afficher ou 0 pour menu principale");
-                        System.out.println(choice);
+                    System.out.println("4.Recherche de compte (numéro de compte)");
+                    System.out.println("Taper 1 pour afficher ou 0 pour menu principale");
+                    if (choice() == 1) {
+                        System.out.println("****************** Les chambres *****************");
+                        System.out.println();
+                        System.out.println("****************** Les clients ******************");
+                        System.out.println();
+                        System.out.println("****************** Les reservations ******************");
+                        System.out.println();
+
                         break;
                     } else {
                         System.out.println("Verifier votre chiffre 1");
@@ -75,10 +93,15 @@ public class Main {
                 }
             } else if (choice == 5) {
                 while (choice > 0 && choice < 10) {
-                    if (choice == 5) {
-                        System.out.println("Dans E-5.Afficher le numero la derniere chambre vide");
-                        System.out.println("Taper 1 pour afficher ou 0 pour menu principale");
-                        System.out.println(choice);
+                    System.out.println("5.Recherche de client (Nom, Numéro de compte, identifiant de client)");
+                    System.out.println("Taper 1 pour afficher ou 0 pour menu principale");
+                    if (choice() == 1) {
+                        System.out.println("****************** Les chambres *****************");
+                        System.out.println();
+                        System.out.println("****************** Les clients ******************");
+                        System.out.println();
+                        System.out.println("****************** Les reservations ******************");
+                        System.out.println();
                         break;
                     } else {
                         System.out.println("Verifier votre chiffre 1");
@@ -87,11 +110,17 @@ public class Main {
                 }
             } else if (choice == 6) {
                 while (choice > 0 && choice() < 10) {
-                    if (choice == 6) {
-                        System.out.println("F-6.Reserver une chambre");
-                        System.out.println("Taper 0 pour revenir au menu principal");
-                        choice();
-                        System.out.println(choice);
+                    System.out.println("6.Afficher la liste des comptes d’un client (identifiant client)");
+                    System.out.println("Taper 1 pour afficher ou 0 pour menu principale");
+                    if (choice() == 1) {
+                        System.out.println("****************** Les chambres *****************");
+                        System.out.println();
+                        System.out.println("****************** Les clients ******************");
+                        System.out.println();
+                        System.out.println("****************** Les reservations ******************");
+                        System.out.println();
+
+                        break;
                     } else {
                         System.out.println("Verifier votre chiffre 6");
                     }
@@ -99,11 +128,17 @@ public class Main {
                 }
             } else if (choice == 7) {
                 while (choice > 0 && choice < 10) {
-                    if (choice == 7) {
-                        System.out.println("G-7.Afficher le nombre de chambres reservees");
-                        System.out.println("Taper 0 pour revenir au menu principal");
-                        choice();
-                        System.out.println(choice);
+                    System.out.println("7.Imprimer les infos client (identifiant client)");
+                    System.out.println("Taper 1 pour afficher ou 0 pour menu principale");
+                    if (choice() == 1) {
+                        System.out.println("****************** Les chambres *****************");
+                        System.out.println();
+                        System.out.println("****************** Les clients ******************");
+                        System.out.println();
+                        System.out.println("****************** Les reservations ******************");
+                        System.out.println();
+
+                        break;
                     } else {
                         System.out.println("Verifier votre chiffre 7");
                     }
