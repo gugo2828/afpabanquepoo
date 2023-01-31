@@ -29,8 +29,8 @@ public class Main {
                             System.out.println("****************** Les reservations ******************");
                             System.out.println();
                             agenceMaker(choice,choice,selector(),selector());
-
-                            System.out.println();
+                           // agenceReader();
+                            System.out.println(agenceReader());
                         }
                         break;
                     } else {

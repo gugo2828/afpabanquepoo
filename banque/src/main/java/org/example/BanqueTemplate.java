@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BanqueTemplate {
+    Object empty = new Object();
+    ArrayList<Object> empties = new ArrayList<>();
 
-    ArrayList<Client> clients = new ArrayList<Client>();
-    ArrayList<Agence> agences = new ArrayList<Agence>();
     private static Scanner scanner = new Scanner(System.in);
 
     public static int choice() {
@@ -32,6 +32,11 @@ public class BanqueTemplate {
           serialisation(agence);
       }
 
+    public static Object agenceReader(){
+
+            return deserialisation(empty);
+        
+    }
 //template for Créer un client
       private void clientMaker(Agence agence){
 
@@ -43,30 +48,46 @@ public class BanqueTemplate {
 
       }
 
-      public static void serialisation(Agence agence){
+      public static void serialisation(Object empty){
+          String filename ="";
+        if (empty instanceof Agence){
+            filename="agence";
+        } else if (empty instanceof Compte) {
+            filename="compte";
+        } else if (empty instanceof Client) {
+            filename="client";
+        }
           try {
               // donner le fichier dans lequel j'enreigstre
-              FileOutputStream io = new FileOutputStream("/var/www/21.afpa_banque_poo/banque/client.txt");
+              FileOutputStream io = new FileOutputStream("/var/www/21.afpa_banque_poo/banque/db/"+filename+".txt");
               // pour ecrire dans le fichier j'utilise un objet de type
               ObjectOutputStream o = new ObjectOutputStream(io);
-              o.writeObject(agence);
+              o.writeObject(empty);
           } catch (IOException e) {
               e.printStackTrace();
           }
       }
-      public void deserialisation(Agence agence){
-
+      public static Object deserialisation(Object empty){
+          String filename ="";
+          if (empty instanceof Agence){
+              filename="agence";
+          } else if (empty instanceof Compte) {
+              filename="compte";
+          } else if (empty instanceof Client) {
+              filename="client";
+          }
           try {
               // donner le fichier contenant les clients
-              FileInputStream io = new FileInputStream("/var/www/21.afpa_banque_poo/banque/client.txt");
+              FileInputStream io = new FileInputStream("/var/www/21.afpa_banque_poo/banque/db/"+filename+".txt");
               // pour lire les objets du fichier  j'utilise un objet de type ObjectInputStream
               ObjectInputStream o = new ObjectInputStream(io);
-              agences = (ArrayList<Agence>) o.readObject();
+              empty = (ArrayList<Object>) o.readObject();
 
           } catch (IOException | ClassNotFoundException e) {
               e.printStackTrace();
           }
 
+          return empty;
       }
 /*
 Foctionnalité à ajouter dans le projet banque :
